@@ -86,72 +86,164 @@ describe("Ballot", function () {
   });
 
   describe("when the voter interact with the vote function in the contract", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    it("can not vote without the right to", async function () {
+      const voter = accounts[1];
+      await expect(ballotContract.connect(voter).vote(0)).to.be.revertedWith(
+        "Has no right to vote"
+      );
+    });
+
+    it("can not vote if it has already voted", async function () {
+      const voter = accounts[1];
+      await giveRightToVote(ballotContract, voter.address);
+
+      await ballotContract.connect(voter).vote(0);
+      await expect(ballotContract.connect(voter).vote(0)).to.be.revertedWith(
+        "Already voted."
+      );
     });
   });
 
   describe("when the voter interact with the delegate function in the contract", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    it("can not delegate if already voted", async function () {
+      const voter = accounts[1];
+      await giveRightToVote(ballotContract, voter.address)
+
+      await ballotContract.connect(voter).vote(0);
+      await expect(ballotContract.connect(voter).delegate(accounts[0].address)).to.be.revertedWith(
+        "You already voted."
+      );
+    });
+
+    it("can not self delegate", async function () {
+      const voter = accounts[1];
+      await expect(ballotContract.connect(voter).delegate(voter.address)).to.be.revertedWith(
+        "Self-delegation is disallowed."
+      );
+    });
+
+    it("can not loop delegation", async function () {
+      const voter = accounts[1];
+      const attacker = accounts[2];
+      await giveRightToVote(ballotContract, voter.address)
+
+      await ballotContract.connect(attacker).delegate(voter.address);
+      await expect(ballotContract.connect(voter).delegate(attacker.address)).to.be.revertedWith(
+        "Found loop in delegation."
+      );
+    });
+
+    it("can not delegate to wallet that cannot vote", async function () {
+      const voter = accounts[1];
+      await expect(ballotContract.connect(voter).delegate(accounts[5].address)).to.be.revertedWith(
+        ""
+      );
     });
   });
 
   describe("when the an attacker interact with the giveRightToVote function in the contract", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    it("can not give right to vote if not the chairperson", async function () {
+      const voterAddress = accounts[1].address;
+      const attacker = accounts[2];
+
+      await expect(
+        ballotContract.connect(attacker).giveRightToVote(voterAddress)
+      ).to.be.revertedWith("Only chairperson can give right to vote.");
     });
   });
 
   describe("when the an attacker interact with the vote function in the contract", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    it("can not vote without the right", async function () {
+      const attacker = accounts[2];
+      await expect(ballotContract.connect(attacker).vote(0)).to.be.revertedWith(
+        "Has no right to vote"
+      );
     });
   });
 
   describe("when the an attacker interact with the delegate function in the contract", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    it("can not self delegate", async function () {
+      const attacker = accounts[2];
+      await expect(ballotContract.connect(attacker).delegate(attacker.address)).to.be.revertedWith(
+        "Self-delegation is disallowed."
+      );
+    });
+
+    it("can not loop delegation", async function () {
+      const attacker = accounts[2];
+      const voter = accounts[1];
+      await giveRightToVote(ballotContract, voter.address)
+
+      await ballotContract.connect(attacker).delegate(voter.address);
+      await expect(ballotContract.connect(voter).delegate(attacker.address)).to.be.revertedWith(
+        "Found loop in delegation."
+      );
+    });
+
+    it("can not delegate to wallet that cannot vote", async function () {
+      const attacker = accounts[2];
+      const voter = accounts[1];
+      await expect(ballotContract.connect(attacker).delegate(voter.address)).to.be.revertedWith(
+        ""
+      );
     });
   });
 
   describe("when someone interact with the winningProposal function before any votes are cast", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    it("should return 0", async function () {
+      const someone = accounts[2];
+      expect(await ballotContract.connect(someone).winningProposal()).to.eq(0);
     });
   });
 
   describe("when someone interact with the winningProposal function after one vote is cast for the first proposal", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    const VOTED = "2";
+    it("should return the winning proposal", async function () {
+      const someone = accounts[2];
+      await ballotContract.vote(VOTED);
+      expect(await ballotContract.connect(someone).winningProposal()).to.eq(
+        VOTED
+      );
     });
   });
 
   describe("when someone interact with the winnerName function before any votes are cast", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    it("should not return anything but the name of proposal 0", async function () {
+      const someone = accounts[2];
+      expect(await ballotContract.connect(someone).winnerName()).to.eq(
+        ethers.utils.formatBytes32String(PROPOSALS[0])
+      );
     });
   });
 
   describe("when someone interact with the winnerName function after one vote is cast for the first proposal", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    const VOTED = "1";
+    it("should not return anything but the name of the voted proposal", async function () {
+      const someone = accounts[2];
+      await ballotContract.vote(VOTED);
+      expect(await ballotContract.connect(someone).winnerName()).to.eq(
+        ethers.utils.formatBytes32String(PROPOSALS[VOTED])
+      );
     });
   });
 
   describe("when someone interact with the winningProposal function and winnerName after 5 random votes are cast for the proposals", function () {
-    // TODO
-    it("is not implemented", async function () {
-      throw new Error("Not implemented");
+    it("should not return anything but the name of the most voted proposal", async function () {
+      const voteTracking = [0, 0, 0];
+      for (let i = 1; i < 5; i++)
+        await giveRightToVote(ballotContract, accounts[i].address);
+
+      for (let i = 0; i < 5; i++) {
+        const toVote = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+        voteTracking[toVote]++;
+        await ballotContract.connect(accounts[i]).vote(toVote);
+      }
+
+      expect(await ballotContract.connect(accounts[2]).winnerName()).to.eq(
+        ethers.utils.formatBytes32String(
+          PROPOSALS[voteTracking.indexOf(Math.max(...voteTracking))]
+        )
+      );
     });
   });
 });
