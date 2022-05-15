@@ -9,6 +9,7 @@ import { writeLogs } from "../../utils";
 // Do never expose your keys like this
 const EXPOSED_KEY =
   "8da4ef21b864d2cc526dbdb2a120bd2874c36c9d0a1fb7f8c63d7f7a8b41de8f";
+const NUMBER_OF_PROPOSALS = 3;
 
 async function main() {
   const wallet =
@@ -28,19 +29,20 @@ async function main() {
   const ballotAddress = process.argv[2];
   writeLogs("Attaching ballot contract interface to address", ballotAddress);
 
-  if (process.argv.length < 4) throw new Error("Proposal number missing");
-  const PROPOSAL_NUMBER = process.argv[3];
-
   const ballotContract: Ballot = new Contract(
     ballotAddress,
     ballotJson.abi,
     signer
   ) as Ballot;
 
-  const PROPOSAL = await ballotContract.proposals(PROPOSAL_NUMBER);
-  writeLogs("NAME", ethers.utils.parseBytes32String(PROPOSAL.name));
-  writeLogs("VOTE_COUNT", PROPOSAL.voteCount.toString());
-  writeLogs("", "")
+  for (let i = 0; i < NUMBER_OF_PROPOSALS; i++) {
+    writeLogs("Fetching proposals", {});
+    const PROPOSAL = await ballotContract.proposals(i);
+    writeLogs("NAME", ethers.utils.parseBytes32String(PROPOSAL.name));
+    writeLogs("VOTE_COUNT", PROPOSAL.voteCount.toString());
+    writeLogs("", "")
+  }
+  
   return;
 }
 
