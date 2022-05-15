@@ -1,0 +1,116 @@
+[1652640524268] Using address: "0xA90B1F43Ff13ee9B0A7557d29e5791DF59f9fe98"
+[1652640538435] Wallet balance: 8.896068032969435
+[1652640538437] Deploying Ballot contract: {}
+[1652640538442] Proposals: ["Revive Luna","Kill UST","Abandon Ship"]
+[1652640538447] Proposal N.: "1: Revive Luna"
+[1652640538449] Proposal N.: "2: Kill UST"
+[1652640538451] Proposal N.: "3: Abandon Ship"
+[1652640547878] Awaiting confirmations: {}
+[1652640571090] Completed: {}
+[1652640571092] Contract deployed at: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+
+[1652640646493] Using address: "0xA90B1F43Ff13ee9B0A7557d29e5791DF59f9fe98"
+[1652640649582] Wallet balance: 8.894381306959314
+[1652640649583] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652640649589] Fetching proposals: {}
+[1652640654123] NAME: "Revive Luna"
+[1652640654124] VOTE_COUNT: "0"
+
+[1652640654125] Fetching proposals: {}
+[1652640656613] NAME: "Kill UST"
+[1652640656615] VOTE_COUNT: "0"
+
+[1652640656616] Fetching proposals: {}
+[1652640656901] NAME: "Abandon Ship"
+[1652640656903] VOTE_COUNT: "0"
+
+[1652640697612] Using address: "0xA90B1F43Ff13ee9B0A7557d29e5791DF59f9fe98"
+[1652640698514] Wallet balance: 8.894381306959314
+[1652640698516] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652640699097] Giving right to vote to: "0x2E81B5cA2468D5b41aA942AD6bC61415F0Bc5A3A"
+[1652640701702] Awaiting confirmations: {}
+[1652640718083] Transaction completed. Hash:: "0x2ca84e4b6e3d60aefe30a93296323a291886a480d20134e53180d3094efd3e5a"
+
+[1652640729295] Using address: "0xA90B1F43Ff13ee9B0A7557d29e5791DF59f9fe98"
+[1652640732382] Wallet balance: 8.894308321458876
+[1652640732383] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652640732886] Giving right to vote to: "0x1d0b9368d1d8Ba08AA57484591BeFF98AFC28c8c"
+[1652640741592] Awaiting confirmations: {}
+[1652640766649] Transaction completed. Hash:: "0x299f97f1870bf8b8c77965bd3327a268ed38cc4aeec3f333ed1cfef45c509dc2"
+
+[1652640787563] Using address: "0xA90B1F43Ff13ee9B0A7557d29e5791DF59f9fe98"
+[1652640788572] Wallet balance: 8.894235335958488
+[1652640788574] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652640789095] Giving right to vote to: "0x764eE2483112a470d3c6B0AE303149Fc79954815"
+[1652640791292] Awaiting confirmations: {}
+[1652640800691] Transaction completed. Hash:: "0x114d5ae34dec3172b6ad63a60d698ee81e43ef312695a8ce937daee3c378c0a8"
+
+[1652640823207] Using address: "0xA90B1F43Ff13ee9B0A7557d29e5791DF59f9fe98"
+[1652640823978] Wallet balance: 8.894162350458098
+[1652640823979] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652640824361] Giving right to vote to: "0xbf7Bc8Db422d291FefA37cc23B34749bA7a6101E"
+[1652640847946] Awaiting confirmations: {}
+[1652640936904] Transaction completed. Hash:: "0x7a1810814cf721b2444b9675817825f249cf7bab6d3ed260c91e9c91aeae08f9"
+
+[1652640947184] Using address: "0xA90B1F43Ff13ee9B0A7557d29e5791DF59f9fe98"
+[1652640949957] Wallet balance: 8.89408936495771
+[1652640949959] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652640950257] Giving right to vote to: "0x05D0C9EF5D4988CCB04434FC5C0972E6A7F11642"
+[1652640963157] Awaiting confirmations: {}
+[1652640968489] Transaction completed. Hash:: "0x43e52274d60f0006c315e5bbfeb5c9af2a44218c029cfb7278f37e7000463f5f"
+
+[1652641041254] Using address: "0xA90B1F43Ff13ee9B0A7557d29e5791DF59f9fe98"
+[1652641044220] Wallet balance: 8.89401637945732
+[1652641044222] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652641044232] Voting for proposal #: "0"
+[1652641048979] Awaiting confirmations: {}
+[1652641098364] Transaction completed. Hash:: "0x562a77ff0f090eac5d1750727791391dbf7e59a740f70c25a6d6076bd8e9d0b2"
+
+[1652641109173] Using address: "0x2E81B5cA2468D5b41aA942AD6bC61415F0Bc5A3A"
+[1652641114047] Wallet balance: 0.1
+[1652641114049] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652641114058] Voting for proposal #: "0"
+[1652641120057] Awaiting confirmations: {}
+[1652641178688] Transaction completed. Hash:: "0xda2ce9beaa2576f58097d3ad42ba8495f3fd40a325f786c615e9c5486a96f7ed"
+
+[1652641199674] Using address: "0x1d0b9368d1d8Ba08AA57484591BeFF98AFC28c8c"
+[1652641200286] Wallet balance: 0.1
+[1652641200287] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652641200292] Voting for proposal #: "0"
+[1652641203976] Awaiting confirmations: {}
+[1652641281550] Transaction completed. Hash:: "0x4101bd1b0ce5bc904dc1f280a2dcf8565942d57c955e9481264fbadb1365d9a7"
+
+[1652641310238] Using address: "0x764eE2483112a470d3c6B0AE303149Fc79954815"
+[1652641313004] Wallet balance: 0.1
+[1652641313005] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652641313012] Delegating vote to: "0xbf7Bc8Db422d291FefA37cc23B34749bA7a6101E"
+[1652641322220] Awaiting confirmations: {}
+[1652641335363] Transaction completed. Hash:: "0x09a88c33a3fe84839976ddd9aecfc3eb817699545688596235a8d6e1fc1cbe48"
+
+[1652641367079] Using address: "0xbf7Bc8Db422d291FefA37cc23B34749bA7a6101E"
+[1652641368081] Wallet balance: 0.1
+[1652641368082] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652641368087] Voting for proposal #: "2"
+[1652641370462] Awaiting confirmations: {}
+[1652641467844] Transaction completed. Hash:: "0x52174d14e302d6471f7b8ee9b4f46e5ac728a8509d875b6b6d5852a3d79772d1"
+
+[1652641487326] Using address: "0xbf7Bc8Db422d291FefA37cc23B34749bA7a6101E"
+[1652641487913] Wallet balance: 0.09986061399916368
+[1652641487914] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652641488192] WINNING PROPOSAL NAME: "Revive Luna"
+
+[1652641513232] Using address: "0xbf7Bc8Db422d291FefA37cc23B34749bA7a6101E"
+[1652641514432] Wallet balance: 0.09986061399916368
+[1652641514433] Attaching ballot contract interface to address: "0x79b67793f414b37c30485dAcdAe48174dfFDB39B"
+[1652641514439] Fetching proposals: {}
+[1652641514965] NAME: "Revive Luna"
+[1652641514966] VOTE_COUNT: "3"
+
+[1652641514967] Fetching proposals: {}
+[1652641515482] NAME: "Kill UST"
+[1652641515483] VOTE_COUNT: "0"
+
+[1652641515484] Fetching proposals: {}
+[1652641515762] NAME: "Abandon Ship"
+[1652641515763] VOTE_COUNT: "2"
+

@@ -54,7 +54,6 @@ async function main() {
   await ballotContract.deployed();
   writeLogs("Completed", {});
   writeLogs("Contract deployed at", ballotContract.address);
-  writeLogs("Querying proposals:", await ballotContract.proposals());
   writeLogs("", "")
 }
 
